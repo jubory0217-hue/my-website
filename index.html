@@ -154,107 +154,143 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="portfolio" class="py-24 md:py-32 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
-            <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-8">
-                <div>
-                    <h2 class="text-4xl md:text-5xl font-black mb-6 text-gray-900 tracking-tighter uppercase">PROJECTS</h2>
-                    <!-- 수정사항: '실시간' 삭제 -->
-                    <p class="text-gray-500 text-lg">성부금속의 시공현장을 확인해보세요.</p>
+<!-- Projects Section -->
+<section id="portfolio" class="py-24 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+        <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-8">
+            <div>
+                <h2 class="text-4xl md:text-5xl font-black mb-6 text-gray-900 tracking-tighter uppercase">PROJECTS</h2>
+                <p class="text-gray-500 text-lg">성부금속의 시공현장을 확인해보세요.</p>
+            </div>
+
+            <!-- Filter Buttons with Mobile Scroll -->
+            <div class="flex flex-nowrap overflow-x-auto gap-2 py-2 md:justify-start">
+                <button data-filter="전체" class="filter-btn px-7 py-2.5 rounded-full bg-gold text-white text-sm font-bold shadow-lg flex-shrink-0">전체</button>
+                <button data-filter="철계단" class="filter-btn px-7 py-2.5 rounded-full border border-gray-200 text-gray-400 text-sm font-bold hover:border-gray-400 hover:text-gray-700 transition-all flex-shrink-0">철계단</button>
+                <button data-filter="난간" class="filter-btn px-7 py-2.5 rounded-full border border-gray-200 text-gray-400 text-sm font-bold hover:border-gray-400 hover:text-gray-700 transition-all flex-shrink-0">난간</button>
+                <button data-filter="복층공사" class="filter-btn px-7 py-2.5 rounded-full border border-gray-200 text-gray-400 text-sm font-bold hover:border-gray-400 hover:text-gray-700 transition-all flex-shrink-0">복층공사</button>
+                <button data-filter="철구조물" class="filter-btn px-7 py-2.5 rounded-full border border-gray-200 text-gray-400 text-sm font-bold hover:border-gray-400 hover:text-gray-700 transition-all flex-shrink-0">철구조물</button>
+            </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <!-- Project Cards (data-category 적용) -->
+            <div class="group block overflow-hidden project-item opacity-100 transition-opacity duration-500" data-category="철계단">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                    <img src="images/project1.jpg" alt="강남구 계단 시공" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">철계단</span>
+                    </div>
                 </div>
-                <div class="flex flex-wrap justify-center md:justify-start gap-2">
-                    <button class="px-7 py-2.5 rounded-full border border-transparent bg-gold text-white text-sm font-bold shadow-lg">전체</button>
-                    <button class="px-7 py-2.5 rounded-full border border-gray-200 text-gray-400 text-sm font-bold hover:border-gray-400 hover:text-gray-700 transition-all">철계단</button>
-                    <button class="px-7 py-2.5 rounded-full border border-gray-200 text-gray-400 text-sm font-bold hover:border-gray-400 hover:text-gray-700 transition-all">난간</button>
-                    <button class="px-7 py-2.5 rounded-full border border-gray-200 text-gray-400 text-sm font-bold hover:border-gray-400 hover:text-gray-700 transition-all">복층공사</button>
-                    <button class="px-7 py-2.5 rounded-full border border-gray-200 text-gray-400 text-sm font-bold hover:border-gray-400 hover:text-gray-700 transition-all">철구조물</button>
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">강남구 논현동 모던 철계단</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">화이트 인테리어에 어울리는 슬림한 철제 프레임과 강화유리 난간 시공</p>
                 </div>
             </div>
 
-            <!-- Projects Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                <!-- Project 1 -->
-                <div class="group block overflow-hidden">
-                    <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
-                        <img src="images/project1.jpg" alt="강남구 계단 시공" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute top-6 left-6">
-                            <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">철계단</span>
-                        </div>
-                    </div>
-                    <div class="px-2">
-                        <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">강남구 논현동 모던 철계단</h3>
-                        <p class="text-gray-500 font-light line-clamp-2">화이트 인테리어에 어울리는 슬림한 철제 프레임과 강화유리 난간 시공</p>
+            <div class="group block overflow-hidden project-item opacity-100 transition-opacity duration-500" data-category="복층공사">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                    <img src="images/project2.jpg" alt="평택 물류창고" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">복층공사</span>
                     </div>
                 </div>
-                <!-- Project 2 -->
-                <div class="group block overflow-hidden">
-                    <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
-                        <img src="images/project2.jpg" alt="평택 물류창고" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute top-6 left-6">
-                            <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">복층공사</span>
-                        </div>
-                    </div>
-                    <div class="px-2">
-                        <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">평택 물류창고 대형 복층 구조물</h3>
-                        <p class="text-gray-500 font-light line-clamp-2">하중 설계를 기반으로 한 견고한 H빔 구조의 오피스 공간 구축</p>
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">평택 물류창고 대형 복층 구조물</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">하중 설계를 기반으로 한 견고한 H빔 구조의 오피스 공간 구축</p>
+                </div>
+            </div>
+
+            <div class="group block overflow-hidden project-item opacity-100 transition-opacity duration-500" data-category="난간">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                    <img src="images/project3.jpg" alt="성수동 카페 난간" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">난간</span>
                     </div>
                 </div>
-                <!-- Project 3 -->
-                <div class="group block overflow-hidden">
-                    <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
-                        <img src="images/project3.jpg" alt="성수동 카페 난간" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute top-6 left-6">
-                            <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">난간</span>
-                        </div>
-                    </div>
-                    <div class="px-2">
-                        <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">성수동 카페 야외 테라스 난간</h3>
-                        <p class="text-gray-500 font-light line-clamp-2">부식 방지 특수 도장과 세련된 다크 그레이 컬러의 조화</p>
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">성수동 카페 야외 테라스 난간</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">부식 방지 특수 도장과 세련된 다크 그레이 컬러의 조화</p>
+                </div>
+            </div>
+
+            <!-- 반복되는 프로젝트도 동일하게 data-category 적용 및 opacity transition -->
+            <div class="group block overflow-hidden project-item opacity-100 transition-opacity duration-500" data-category="철계단">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                    <img src="images/project1.jpg" alt="강남구 계단 시공" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">철계단</span>
                     </div>
                 </div>
-                <!-- Project 4 -->
-                <div class="group block overflow-hidden">
-                    <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
-                        <img src="images/project1.jpg" alt="강남구 계단 시공" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute top-6 left-6">
-                            <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">철계단</span>
-                        </div>
-                    </div>
-                    <div class="px-2">
-                        <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">강남구 논현동 모던 철계단</h3>
-                        <p class="text-gray-500 font-light line-clamp-2">화이트 인테리어에 어울리는 슬림한 철제 프레임과 강화유리 난간 시공</p>
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">강남구 논현동 모던 철계단</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">화이트 인테리어에 어울리는 슬림한 철제 프레임과 강화유리 난간 시공</p>
+                </div>
+            </div>
+
+            <div class="group block overflow-hidden project-item opacity-100 transition-opacity duration-500" data-category="복층공사">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                    <img src="images/project2.jpg" alt="평택 물류창고" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">복층공사</span>
                     </div>
                 </div>
-                <!-- Project 5 -->
-                <div class="group block overflow-hidden">
-                    <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
-                        <img src="images/project2.jpg" alt="평택 물류창고" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute top-6 left-6">
-                            <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">복층공사</span>
-                        </div>
-                    </div>
-                    <div class="px-2">
-                        <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">평택 물류창고 대형 복층 구조물</h3>
-                        <p class="text-gray-500 font-light line-clamp-2">하중 설계를 기반으로 한 견고한 H빔 구조의 오피스 공간 구축</p>
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">평택 물류창고 대형 복층 구조물</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">하중 설계를 기반으로 한 견고한 H빔 구조의 오피스 공간 구축</p>
+                </div>
+            </div>
+
+            <div class="group block overflow-hidden project-item opacity-100 transition-opacity duration-500" data-category="난간">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                    <img src="images/project3.jpg" alt="성수동 카페 난간" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">난간</span>
                     </div>
                 </div>
-                <!-- Project 6 -->
-                <div class="group block overflow-hidden">
-                    <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
-                        <img src="images/project3.jpg" alt="성수동 카페 난간" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute top-6 left-6">
-                            <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">난간</span>
-                        </div>
-                    </div>
-                    <div class="px-2">
-                        <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">성수동 카페 야외 테라스 난간</h3>
-                        <p class="text-gray-500 font-light line-clamp-2">부식 방지 특수 도장과 세련된 다크 그레이 컬러의 조화</p>
-                    </div>
-                </div>            
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">성수동 카페 야외 테라스 난간</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">부식 방지 특수 도장과 세련된 다크 그레이 컬러의 조화</p>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+
+    <!-- JS for Filter with Fade Animation -->
+    <script>
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const projects = document.querySelectorAll('.project-item');
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const filter = button.dataset.filter;
+
+          // 버튼 스타일 초기화
+          filterButtons.forEach(btn => {
+            btn.classList.remove('bg-gold', 'text-white');
+            btn.classList.add('text-gray-400', 'border', 'border-gray-200');
+          });
+
+          // 활성 버튼 스타일
+          button.classList.add('bg-gold', 'text-white');
+          button.classList.remove('text-gray-400');
+
+          // 프로젝트 필터링 with fade
+          projects.forEach(project => {
+            if (filter === '전체' || project.dataset.category === filter) {
+              project.style.display = 'block';
+              setTimeout(() => project.style.opacity = 1, 10); // fade in
+            } else {
+              project.style.opacity = 0; // fade out
+              setTimeout(() => project.style.display = 'none', 300); // match duration
+            }
+          });
+        });
+      });
+    </script>
+</section>
+
 
     <!-- Contact Section -->
     <section id="contact" class="py-24 md:py-32 bg-white">
@@ -429,4 +465,5 @@
         });
     </script>
 </body>
+
 </html>
