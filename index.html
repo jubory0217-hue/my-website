@@ -174,7 +174,7 @@
         </div>
 
         <!-- Projects Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr">
             <!-- Project Cards (data-category 적용) -->
             <div class="group block overflow-hidden project-item opacity-100 transition-opacity duration-500" data-category="철계단">
                 <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
@@ -354,7 +354,6 @@
                 </div>
             </div>
 
-            <!-- 반복되는 프로젝트도 동일하게 data-category 적용 및 opacity transition -->
             <div class="group block overflow-hidden project-item opacity-100 transition-opacity duration-500" data-category="철계단">
                 <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
                     <img src="images/파주 심학산 식당 내부 원형계단.jpg" alt="파주 심학산 식당 내부 원형계단" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
@@ -481,6 +480,37 @@
     </div>
 
     <!-- JS for Filter with Fade Animation -->
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const maxCardsPerCategory = 6;
+    const minCardsPerCategory = 3;
+
+    // 모든 카드 가져오기
+    const cards = Array.from(document.querySelectorAll('.project-item'));
+
+    // 카테고리별로 그룹핑
+    const categories = {};
+    cards.forEach(card => {
+        const category = card.dataset.category;
+        if (!categories[category]) categories[category] = [];
+        categories[category].push(card);
+    });
+
+    // 카테고리별 카드 표시 제한 적용
+    Object.keys(categories).forEach(category => {
+        const catCards = categories[category];
+        catCards.forEach((card, index) => {
+            if (index >= maxCardsPerCategory) {
+                card.style.display = 'none'; // 최대 개수 초과 카드 숨김
+            } else {
+                card.style.display = 'block'; // 나머지 보이게
+            }
+        });
+    });
+
+    // 만약 특정 카테고리에 카드가 minCardsPerCategory보다 적으면 그냥 있는 것만 보여줌
+});
+</script>
     <script>
       const filterButtons = document.querySelectorAll('.filter-btn');
       const projects = document.querySelectorAll('.project-item');
@@ -731,6 +761,7 @@
     </script>
 </body>
 </html>
+
 
 
 
