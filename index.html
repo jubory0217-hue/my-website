@@ -479,8 +479,8 @@
         </div>
     </div>
 
-    <!-- JS for Filter with Fade Animation -->
-    <script>
+    <!-- JS for Filter with Fade Animation and Max 6 Cards per Category -->
+<script>
 document.addEventListener('DOMContentLoaded', () => {
     const maxCardsPerCategory = 6;
     const cards = Array.from(document.querySelectorAll('.project-item'));
@@ -496,11 +496,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 카드 표시 함수
     function showCards(filteredCategory = '전체') {
+        // 먼저 모든 카드 숨기고 opacity 초기화
         cards.forEach(card => {
             card.style.opacity = 0;
             card.style.display = 'none';
         });
 
+        // 각 카테고리별로 표시
         Object.keys(categories).forEach(category => {
             if (filteredCategory !== '전체' && category !== filteredCategory) return;
 
@@ -508,7 +510,8 @@ document.addEventListener('DOMContentLoaded', () => {
             catCards.forEach((card, index) => {
                 if (index < maxCardsPerCategory) {
                     card.style.display = 'block';
-                    setTimeout(() => card.style.opacity = 1, 10); // fade in
+                    // fade-in
+                    setTimeout(() => card.style.opacity = 1, 10);
                 }
             });
         });
@@ -528,7 +531,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.classList.add('text-gray-400', 'border', 'border-gray-200');
             });
 
-            // 활성 버튼 스타일
+            // 활성 버튼 스타일 적용
             button.classList.add('bg-gold', 'text-white');
             button.classList.remove('text-gray-400');
 
@@ -757,6 +760,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </script>
 </body>
 </html>
+
 
 
 
