@@ -505,16 +505,7 @@
                     }
                 });
 
-                // 2️⃣ 버튼 Active 상태 변경
-                document.querySelectorAll('.filter-btn').forEach(btn => {
-                    btn.classList.remove('bg-gold', 'text-white');
-                    btn.classList.add('bg-gray-200', 'text-gray-400');
-                });
-                // 클릭한 버튼만 활성 스타일
-                this.classList.add('bg-gold', 'text-white');
-                this.classList.remove('bg-gray-200', 'text-gray-400');
-
-                // 3️⃣ 포트폴리오 섹션으로 스크롤
+                // 2️⃣ 포트폴리오 섹션으로 스크롤
                 const portfolioSection = document.getElementById('portfolio');
                 if (portfolioSection) {
                     const offset = 80; // 상단 메뉴 높이 보정
@@ -529,6 +520,7 @@
 </script>
 </body>
 </html>
+
 
 
 
