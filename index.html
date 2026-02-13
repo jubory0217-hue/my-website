@@ -479,65 +479,67 @@
         </div>
     </div>
 
-    <!-- JS for Filter + Max 6 Cards per Category + Grid 정렬 -->
+    <!-- JS for Projects Grid with Filter + Fade + No Gaps -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const maxCardsPerCategory = 6;
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const allCards = Array.from(document.querySelectorAll('.project-item'));
+    const maxCardsPerCategory = 6;
+    const grid = document.querySelector('.grid'); // 프로젝트 그리드
+    const cards = Array.from(document.querySelectorAll('.project-item'));
+    const filterButtons = document.querySelectorAll('.filter-btn');
 
-  // 카테고리별 카드 그룹 생성
-  const categories = {};
-  allCards.forEach(card => {
-    const category = card.dataset.category;
-    if (!categories[category]) categories[category] = [];
-    categories[category].push(card);
-  });
-
-  // 카드 표시 함수
-  function showCards(filteredCategory = '전체') {
-    allCards.forEach(card => {
-      card.style.opacity = 0;
-      card.style.display = 'none';
+    // 카테고리별 그룹핑
+    const categories = {};
+    cards.forEach(card => {
+        const category = card.dataset.category;
+        if (!categories[category]) categories[category] = [];
+        categories[category].push(card);
     });
 
-    Object.keys(categories).forEach(category => {
-      if (filteredCategory !== '전체' && category !== filteredCategory) return;
+    // 카드 표시 함수
+    function showCards(filteredCategory = '전체') {
+        cards.forEach(card => {
+            card.style.display = 'none';
+            card.style.opacity = 0;
+        });
 
-      // 최대 6개까지만 보여주기
-      const catCards = categories[category].slice(0, maxCardsPerCategory);
-      catCards.forEach(card => {
-        card.style.display = 'block';
-        setTimeout(() => {
-          card.style.opacity = 1; // fade-in
-            grid.style.opacity = 1; // fade-in
-        }, 10);
-      });
+        Object.keys(categories).forEach(category => {
+            if (filteredCategory !== '전체' && category !== filteredCategory) return;
+
+            const catCards = categories[category];
+            catCards.forEach((card, index) => {
+                if (index < maxCardsPerCategory) {
+                    card.style.display = 'block';
+                    setTimeout(() => card.style.opacity = 1, 50); // fade-in
+                }
+            });
+        });
+
+        // grid fade-in
+        grid.style.opacity = 1;
+    }
+
+    // 초기 로딩: 모든 카테고리 표시
+    showCards();
+
+    // 필터 버튼 이벤트
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.dataset.filter;
+
+            // 버튼 스타일 초기화
+            filterButtons.forEach(btn => {
+                btn.classList.remove('bg-gold', 'text-white');
+                btn.classList.add('text-gray-400', 'border', 'border-gray-200');
+            });
+
+            // 활성 버튼 스타일
+            button.classList.add('bg-gold', 'text-white');
+            button.classList.remove('text-gray-400');
+
+            // 카드 표시
+            showCards(filter);
+        });
     });
-  }
-
-  // 초기 로드: 전체 카테고리 표시
-  showCards();
-
-  // 필터 버튼 클릭
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const filter = button.dataset.filter;
-
-      // 버튼 스타일 초기화
-      filterButtons.forEach(btn => {
-        btn.classList.remove('bg-gold', 'text-white');
-        btn.classList.add('text-gray-400', 'border', 'border-gray-200');
-      });
-
-      // 활성 버튼 스타일
-      button.classList.add('bg-gold', 'text-white');
-      button.classList.remove('text-gray-400');
-
-      // 카드 표시
-      showCards(filter);
-    });
-  });
 });
 </script>
 </section>
@@ -759,6 +761,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </script>
 </body>
 </html>
+
 
 
 
