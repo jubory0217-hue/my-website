@@ -451,84 +451,85 @@
         </div>
     </footer>
 
-<!-- Scripts -->
-<script>
-    // ----------------------------
-    // Mobile Menu Toggle
-    // ----------------------------
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
+    <!-- Scripts -->
+    <script>
+        // ----------------------------
+        // Mobile Menu Toggle
+        // ----------------------------
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
     
-    menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
-
-    // Close mobile menu on click link
-    document.querySelectorAll('#mobile-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
-    });
 
-    // Simple smooth scroll fallback (if needed)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if(targetId === '#') return;
+        // Close mobile menu on click link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Simple smooth scroll fallback (if needed)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
             
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                const offset = 80;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // ----------------------------
-    // Portfolio Filter + Scroll + Active Button
-    // ----------------------------
-    document.querySelectorAll('.filter-btn').forEach(button => {
-        button.addEventListener('click', function () {
-            const filter = this.dataset.filter;
-
-            // 1️⃣ 포트폴리오 카드 필터
-            document.querySelectorAll('.project-item').forEach(item => {
-                if (filter === "전체" || item.dataset.category === filter) {
-                    item.style.display = "block";
-                } else {
-                    item.style.display = "none";
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const offset = 80;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
                 }
             });
-
-            // 2️⃣ 버튼 Active 상태 변경
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('bg-gold', 'text-white');
-                btn.classList.add('bg-gray-200', 'text-gray-400');
-            });
-            // 클릭한 버튼만 활성 스타일
-            this.classList.add('bg-gold', 'text-white');
-            this.classList.remove('bg-gray-200', 'text-gray-400');
-
-            // 3️⃣ 포트폴리오 섹션으로 스크롤
-            const portfolioSection = document.getElementById('portfolio');
-            if (portfolioSection) {
-                const offset = 80; // 상단 메뉴 높이 보정
-                const targetPosition = portfolioSection.getBoundingClientRect().top + window.pageYOffset - offset;
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
         });
-    });
+
+        // ----------------------------
+        // Portfolio Filter + Scroll + Active Button
+        // ----------------------------
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const filter = this.dataset.filter;
+
+                // 1️⃣ 포트폴리오 카드 필터
+                document.querySelectorAll('.project-item').forEach(item => {
+                    if (filter === "전체" || item.dataset.category === filter) {
+                        item.style.display = "block";
+                    } else {
+                        item.style.display = "none";
+                    }
+                });
+
+                // 2️⃣ 버튼 Active 상태 변경
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('bg-gold', 'text-white');
+                    btn.classList.add('bg-gray-200', 'text-gray-400');
+                });
+                // 클릭한 버튼만 활성 스타일
+                this.classList.add('bg-gold', 'text-white');
+                this.classList.remove('bg-gray-200', 'text-gray-400');
+
+                // 3️⃣ 포트폴리오 섹션으로 스크롤
+                const portfolioSection = document.getElementById('portfolio');
+                if (portfolioSection) {
+                    const offset = 80; // 상단 메뉴 높이 보정
+                    const targetPosition = portfolioSection.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
 </script>
 </body>
 </html>
+
 
 
 
