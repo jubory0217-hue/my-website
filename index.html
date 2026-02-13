@@ -486,10 +486,29 @@
                 }
             });
         });
+        // ----------------------------
+        // Portfolio Filter JS 추가
+        // ----------------------------
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const filter = this.dataset.filter;
+
+                document.querySelectorAll('.project-item').forEach(item => {
+                    if (filter === "전체" || item.dataset.category === filter) {
+                        item.style.display = "block";
+                        item.classList.remove("opacity-0");
+                        item.classList.add("opacity-100");
+                    } else {
+                        item.style.display = "none";
+                    }
+                });
+            });
+        });
     </script>
 </body>
 
 </html>
+
 
 
 
