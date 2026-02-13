@@ -513,11 +513,11 @@
             const category = project.dataset.category.trim();
 
             if (filter === '전체' || category === filter) {
-              project.style.display = 'block';
-              setTimeout(() => project.style.opacity = 1, 10); // fade in
+              project.classList.remove('hidden');
+               setTimeout(() => project.style.opacity = 1, 10);
             } else {
-              project.style.opacity = 0;                    // fade out
-              setTimeout(() => project.style.display = 'none', 300); // match duration
+              project.style.opacity = 0;
+               setTimeout(() => project.classList.add('hidden'), 300);
             }
           });
 
@@ -536,6 +536,7 @@
 </script>
 </body>
 </html>
+
 
 
 
