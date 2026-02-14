@@ -493,71 +493,8 @@
             </div>
         </div>
     </div>
-
-    <!-- JS for Projects Grid with Filter + Fade + No Gaps -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const maxCardsPerCategory = 6;
-    const grid = document.querySelector('.grid'); // 프로젝트 그리드
-    const cards = Array.from(document.querySelectorAll('.project-item'));
-    const filterButtons = document.querySelectorAll('.filter-btn');
-
-    // 카테고리별 그룹핑
-    const categories = {};
-    cards.forEach(card => {
-        const category = card.dataset.category;
-        if (!categories[category]) categories[category] = [];
-        categories[category].push(card);
-    });
-
-    // 카드 표시 함수
-    function showCards(filteredCategory = '전체') {
-        cards.forEach(card => {
-            card.style.display = 'none';
-            card.style.opacity = 0;
-        });
-
-        Object.keys(categories).forEach(category => {
-            if (filteredCategory !== '전체' && category !== filteredCategory) return;
-
-            const catCards = categories[category];
-            catCards.forEach((card, index) => {
-                if (index < maxCardsPerCategory) {
-                    card.style.display = 'block';
-                    setTimeout(() => card.style.opacity = 1, 50); // fade-in
-                }
-            });
-        });
-
-        // grid fade-in
-        grid.style.opacity = 1;
-    }
-
-    // 초기 로딩: 모든 카테고리 표시
-    showCards();
-
-    // 필터 버튼 이벤트
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const filter = button.dataset.filter;
-
-            // 버튼 스타일 초기화
-            filterButtons.forEach(btn => {
-                btn.classList.remove('bg-gold', 'text-white');
-                btn.classList.add('text-gray-400', 'border', 'border-gray-200');
-            });
-
-            // 활성 버튼 스타일
-            button.classList.add('bg-gold', 'text-white');
-            button.classList.remove('text-gray-400');
-
-            // 카드 표시
-            showCards(filter);
-        });
-    });
-});
-</script>
 </section>
+    
    <!-- More Projects Button -->
 <div class="text-center mt-12">
     <a href="https://blog.naver.com/sungboo1211" target="_blank" rel="noopener noreferrer"
@@ -721,61 +658,68 @@ document.addEventListener('DOMContentLoaded', () => {
 
     <!-- Scripts -->
     <script>
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+document.addEventListener('DOMContentLoaded', () => {
+    const maxCardsPerCategory = 6;
+    const grid = document.querySelector('.grid');
+    const cards = Array.from(document.querySelectorAll('.project-item'));
+    const filterButtons = document.querySelectorAll('.filter-btn');
+
+    // 카테고리별 그룹핑
+    const categories = {};
+    cards.forEach(card => {
+        const category = card.dataset.category;
+        if (!categories[category]) categories[category] = [];
+        categories[category].push(card);
+    });
+
+    // 카드 표시 함수
+    function showCards(filteredCategory = '전체') {
+        cards.forEach(card => {
+            card.style.display = 'none';
+            card.style.opacity = 0;
         });
 
-        // Close mobile menu on click link
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Simple smooth scroll fallback (if needed)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const offset = 80;
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
+        Object.keys(categories).forEach(category => {
+            if (filteredCategory !== '전체' && category !== filteredCategory) return;
+            categories[category].forEach((card, index) => {
+                if (index < maxCardsPerCategory) {
+                    card.style.display = 'block';
+                    setTimeout(() => card.style.opacity = 1, 50);
                 }
             });
         });
 
-        // ----------------------------
-        // Portfolio Filter JS 추가
-        // ----------------------------
-        document.querySelectorAll('.filter-btn').forEach(button => {
-            button.addEventListener('click', function () {
-                const filter = this.dataset.filter;
+        // grid fade-in
+        grid.style.opacity = 1;
+    }
 
-                document.querySelectorAll('.project-item').forEach(item => {
-                    if (filter === "전체" || item.dataset.category === filter) {
-                        item.style.display = "block";
-                        item.classList.remove("opacity-0");
-                        item.classList.add("opacity-100");
-                    } else {
-                        item.style.display = "none";
-                    }
-                });
+    // 초기 로딩: 모든 카테고리 표시
+    showCards();
+
+    // 필터 버튼 이벤트
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.dataset.filter;
+
+            // 버튼 스타일 초기화
+            filterButtons.forEach(btn => {
+                btn.classList.remove('bg-gold', 'text-white');
+                btn.classList.add('text-gray-400', 'border', 'border-gray-200');
             });
+
+            // 활성 버튼 스타일
+            button.classList.add('bg-gold', 'text-white');
+            button.classList.remove('text-gray-400');
+
+            // 카드 표시
+            showCards(filter);
         });
-    </script>
+    });
+});
+</script>
 </body>
 </html>
+
 
 
 
