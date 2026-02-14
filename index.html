@@ -664,6 +664,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const cards = Array.from(document.querySelectorAll('.project-item'));
     const filterButtons = document.querySelectorAll('.filter-btn');
 
+    // 확인용 로그 추가
+    console.log("Grid:", grid); // grid가 제대로 선택됐는지
+    console.log("Cards:", cards); // cards 배열이 제대로 된 길이를 가지는지
+    console.log("Filter Buttons:", filterButtons); // filterButtons가 제대로 선택됐는지
+
     // 카테고리별 그룹핑
     const categories = {};
     cards.forEach(card => {
@@ -719,6 +724,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
+
 
 
 
